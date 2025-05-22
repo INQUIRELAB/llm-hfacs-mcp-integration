@@ -1,0 +1,75 @@
+[ASRS MCP Server] Running in test mode
+[ASRS MCP Server] Using test data file: ../asrs_incidents_with_hfacs.json
+
+=== STARTING ASRS MCP SERVER UNIT TESTS ===
+
+[ASRS MCP Server] Successfully loaded 50 incidents from D:\Projects\mcp-bridge\scitech\asrs_incidents_with_hfacs.json
+[TEST] Loaded 50 incidents for testing
+
+--- DIRECT TESTING OF INCIDENT ACCESS ---
+[TEST] Using sample ACNs for testing: 2184152, 1781094, 1771351
+
+[TEST] Testing direct access to ACN: 2184152
+  - Raw find result: Found
+[ASRS MCP Server] Looking for incident with ACN: 2184152, type: string
+[ASRS MCP Server] Found incident for ACN 2184152: Yes
+  - getIncidentById result: Found
+
+[TEST] Testing direct access to ACN: 1781094
+  - Raw find result: Found
+[ASRS MCP Server] Looking for incident with ACN: 1781094, type: string
+[ASRS MCP Server] Found incident for ACN 1781094: Yes
+  - getIncidentById result: Found
+
+[TEST] Testing direct access to ACN: 1771351
+  - Raw find result: Found
+[ASRS MCP Server] Looking for incident with ACN: 1771351, type: string
+[ASRS MCP Server] Found incident for ACN 1771351: Yes
+  - getIncidentById result: Found
+
+[TEST] Testing getIncidentById with different types:
+[ASRS MCP Server] Looking for incident with ACN: 2184152, type: string
+[ASRS MCP Server] Found incident for ACN 2184152: Yes
+  - String: Found
+[ASRS MCP Server] Looking for incident with ACN: 2184152, type: number
+[ASRS MCP Server] Found incident for ACN 2184152: Yes
+  - Number: Found
+[ASRS MCP Server] Looking for incident with ACN: 2184152, type: object
+[ASRS MCP Server] Found incident for ACN 2184152: Yes
+  - Object with toString: Found
+
+--- TESTING PARAMETER EXTRACTION ---
+[TEST] Using test ACN: 2184152
+
+[TEST] Testing extraction with Object params:
+  - Input: {"acn":"2184152"}
+  - Extracted as object: 2184152
+  - Final extracted ACN: 2184152, type: string
+[ASRS MCP Server] Looking for incident with ACN: 2184152, type: string
+[ASRS MCP Server] Found incident for ACN 2184152: Yes
+  - Incident found with extracted ACN: YES
+
+[TEST] Testing extraction with JSON string params:
+  - Input: "{\"acn\":\"2184152\"}"
+  - Extracted as JSON: 2184152
+  - Final extracted ACN: 2184152, type: string
+[ASRS MCP Server] Looking for incident with ACN: 2184152, type: string
+[ASRS MCP Server] Found incident for ACN 2184152: Yes
+  - Incident found with extracted ACN: YES
+
+[TEST] Testing extraction with Direct ACN string:
+  - Input: "2184152"
+  - Extracted as JSON: undefined
+  - Final extracted ACN: undefined, type: undefined
+[ASRS MCP Server] Looking for incident with ACN: undefined, type: undefined
+  - Incident found with extracted ACN: NO
+  - Manual find with extracted ACN: Not found
+  - Number conversion find: Not found
+  - First incident ACN type: string
+  - First incident ACN value: "2184152"
+  - Extracted ACN value: "undefined"
+  - Strict equality: false
+  - Loose equality: false
+  - String comparison: false
+
+[TEST] Overall result: Direct tests completed
