@@ -34,11 +34,13 @@ Edit the `mcp_config.json` file in the root directory:
   "mcpServers": {
     "asrs_analyzer": {
       "command": "node",
-      "args": ["scitech/mcpserver/hfacs_server.js"],
+      "args": [
+        "D://Projects//mcp-bridge//scitech//mcpserver//asrs_mcp_server.js",
+        "D://Projects//mcp-bridge//scitech//mcpserver//asrs_incidents_with_hfacs.json"
+      ],
       "env": {
-        "ASRS_API_KEY": "your_asrs_api_key_here"
-      },
-      "riskLevel": 1
+        "NODE_ENV": "production"
+      }
     }
   }
 }
